@@ -64,7 +64,8 @@ extensions = ['breathe',
                    'sphinxcontrib.actdiag',
                    'sphinxcontrib.nwdiag',
                    'sphinxcontrib.rackdiag',
-                   'sphinxcontrib.packetdiag'
+                   'sphinxcontrib.packetdiag',
+                   'sphinxcontrib.wavedrom'
                   ]
 
 # Set up font for blockdiag, nwdiag, rackdiag and packetdiag
@@ -74,6 +75,10 @@ actdiag_fontpath = '../_static/DejaVuSans.ttf'
 nwdiag_fontpath = '../_static/DejaVuSans.ttf'
 rackdiag_fontpath = '../_static/DejaVuSans.ttf'
 packetdiag_fontpath = '../_static/DejaVuSans.ttf'
+
+# Setup script path for wavedrom
+offline_skin_js_path = '../misc/wavedrom/default.js'
+offline_wavedrom_js_path = '../misc/wavedrom/wavedrom.js'
 
 # Breathe extension variables
 
