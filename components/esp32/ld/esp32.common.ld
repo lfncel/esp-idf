@@ -145,6 +145,10 @@ SECTIONS
     *libheap.a:multi_heap_poisoning.o(.rodata .rodata.*)
     INCLUDE esp32.spiram.rom-functions-dram.ld
     _data_end = ABSOLUTE(.);
+    /*add Function Symble Table by xiaomi.*/
+   . = ALIGN(4);
+    KEEP(*(SORT(.miio_addon_list*)));
+    /*add Function Symble Table by xiaomi end.*/    
     . = ALIGN(4);
   } > dram0_0_seg
 
