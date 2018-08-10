@@ -18,7 +18,15 @@ config PARTITION_TABLE_TWO_OTA
     bool "Factory app, two OTA definitions"
 config PARTITION_TABLE_CUSTOM
     bool "Custom partition table CSV"
+config PARTITION_TABLE_XIAOMI_4M
+    bool "Xiaomi partition config table."
 endchoice
+
+config PARTITION_TABLE_XIAOMI_4M_FILENAME
+    string "xiaomi partition csv file" if PARTITION_TABLE_XIAOMI_4M
+    default xiaomi_partitions_4M.csv
+    help
+	Name of xiaomi partition CSV filename.
 
 config PARTITION_TABLE_CUSTOM_FILENAME
     string "Custom partition CSV file" if PARTITION_TABLE_CUSTOM
@@ -50,6 +58,7 @@ config PARTITION_TABLE_FILENAME
        default partitions_two_ota.csv if PARTITION_TABLE_TWO_OTA && !ESP32_ENABLE_COREDUMP_TO_FLASH
        default partitions_two_ota_coredump.csv if PARTITION_TABLE_TWO_OTA && ESP32_ENABLE_COREDUMP_TO_FLASH
        default PARTITION_TABLE_CUSTOM_FILENAME if PARTITION_TABLE_CUSTOM
+       default xiaomi_partitions_4M.csv if PARTITION_TABLE_XIAOMI_4M
 
 config APP_OFFSET
        hex

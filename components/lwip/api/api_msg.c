@@ -530,6 +530,8 @@ accept_function(void *arg, struct tcp_pcb *newpcb, err_t err)
   if (newconn == NULL) {
     return ERR_MEM;
   }
+  /* Add by xiaomi */
+  newconn->ipc_owner = conn->ipc_owner;
   newconn->pcb.tcp = newpcb;
   setup_tcp(newconn);
   /* no protection: when creating the pcb, the netconn is not yet known
@@ -745,6 +747,8 @@ netconn_alloc(enum netconn_type t, netconn_callback callback)
   conn->linger = -1;
 #endif /* LWIP_SO_LINGER */
   conn->flags = 0;
+  /* init exit by xiaomi */
+  conn->ipc_owner = 0;
   return conn;
 free_and_return:
   memp_free(MEMP_NETCONN, conn);

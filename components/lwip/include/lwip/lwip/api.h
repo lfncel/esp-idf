@@ -244,6 +244,8 @@ struct netconn {
 #endif /* LWIP_TCP */
   /** A callback function that is informed about events for this netconn */
   netconn_callback callback;
+  //add by xiaomi.
+  void* ipc_owner;
 };
 
 /** Register an Network connection event */
